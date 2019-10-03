@@ -16,7 +16,6 @@ class Tile {
     this.value = val;
   }
   move(x, y) {
-    console.log("move id:" + this.id + " to (" + x + "," + y + ")");
     this.elm.classList.replace("row" + this.position.y, "row" + y);
     this.elm.classList.replace("col" + this.position.x, "col" + x);
     this.position.x = x;
