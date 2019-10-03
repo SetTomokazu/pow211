@@ -1,0 +1,126 @@
+.my-parts {
+  width: 206px;
+  height: 206px;
+  background: rgb(255, 255, 255);
+  background-image: linear-gradient(90deg, rgb(0, 0, 0) 2px, transparent 0),
+    linear-gradient(rgb(0, 0, 0) 2px, transparent 0);
+  background-size: 50px 50px;
+  background-position: 2px 2px;
+}
+
+.tile {
+  position: absolute;
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  border-radius: 15px;
+  line-height: 45px;
+  text-align: center;
+  font-weight: bold;
+  transition: all 50ms 0s ease;
+}
+.row1 {
+  top: 13px;
+}
+.row2 {
+  top: 63px;
+}
+.row3 {
+  top: 113px;
+}
+.row4 {
+  top: 163px;
+}
+.col1 {
+  left: 13px;
+}
+.col2 {
+  left: 63px;
+}
+.col3 {
+  left: 113px;
+}
+.col4 {
+  left: 163px;
+}
+.val2 {
+  background: beige;
+  color: dimgray;
+  font-size: 15px;
+}
+
+.val4 {
+  background: blanchedalmond;
+  color: dimgray;
+  font-size: 15px;
+}
+.val8 {
+  background: orange;
+  color: whitesmoke;
+  font-size: 15px;
+}
+.val16 {
+  background: #f6f79f;
+  color: blueviolet;
+  font-size: 15px;
+}
+.val32 {
+  background: #f6f79f;
+  color: blueviolet;
+  font-size: 15px;
+}
+.val64 {
+  background: #f6f79f;
+  color: blueviolet;
+  font-size: 15px;
+}
+.val128 {
+  background: #f6f79f;
+  color: blueviolet;
+  font-size: 12px;
+}
+.val256 {
+  background: #f6f79f;
+  color: blueviolet;
+  font-size: 12px;
+}
+.val512 {
+  background: #f6f79f;
+  color: blueviolet;
+  font-size: 12px;
+}
+.val1024 {
+  background: #f6f79f;
+  color: blueviolet;
+  font-size: 10px;
+}
+.val2048 {
+  background: #f6f79f;
+  color: blueviolet;
+  font-size: 10px;
+}
+.val4096 {
+  background: #f6f79f;
+  color: blueviolet;
+  font-size: 10px;
+}
+.val8192 {
+  background: #f6f79f;
+  color: blueviolet;
+  font-size: 10px;
+}
+.val16384 {
+  background: black;
+  color: whitesmoke;
+  font-size: 8px;
+}
+.val32768 {
+  background: black;
+  color: whitesmoke;
+  font-size: 8px;
+}
+.val65536 {
+  background: black;
+  color: whitesmoke;
+  font-size: 8px;
+}
