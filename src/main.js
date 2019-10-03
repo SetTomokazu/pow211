@@ -3,7 +3,7 @@ var key = null;
 document.onkeydown = (event) => {
   if (isPressing) return;
   if (event.which < 37 || 40 < event.which) return;
-  let id = game.move(event.which);
+  game.move(event.which);
 
 };
 document.onkeyup = (event) => {
@@ -11,7 +11,6 @@ document.onkeyup = (event) => {
 };
 
 
-var worker = null;
 var game = null;
 (function () {
   game = new Game();
