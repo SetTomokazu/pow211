@@ -106,18 +106,16 @@ class Game {
     return isMoved;
   }
   spawn() {
-    let rnd = Math.floor(Math.random() * (this.xmax * this.ymax + 1)) + 1;
+    let rnd = Math.floor(Math.random() * (this.xmax * this.ymax - this.tiles.length)) + 1;
     let val = Math.sqrt(Math.pow(Math.random(), 2) + Math.pow(Math.random(), 2)) <= 1 ? 2 : 4;
-    while (rnd > 0) {
-      for (let x = 1; x <= this.xmax; x++) {
-        for (let y = 1; y <= this.ymax; y++) {
-          let t = this.tiles.find(t => t.position.x == x && t.position.y == y);
-          if (!t) {
-            rnd--;
-            if (rnd == 0) {
-              this.tiles.push(new Tile(val, new Vector2(x, y)));
-              return;
-            }
+    for (let x = 1; x <= this.xmax; x++) {
+      for (let y = 1; y <= this.ymax; y++) {
+        let t = this.tiles.find(t => t.position.x == x && t.position.y == y);
+        if (!t) {
+          rnd--;
+          if (rnd == 0) {
+            this.tiles.push(new Tile(val, new Vector2(x, y)));
+            return;
           }
         }
       }
