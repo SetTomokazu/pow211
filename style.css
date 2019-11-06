@@ -1,7 +1,7 @@
 .my-parts {
   width: 206px;
   height: 206px;
-  background: rgb(255, 255, 255);
+  background: burlywood;
   background-image: linear-gradient(90deg, rgb(0, 0, 0) 2px, transparent 0),
     linear-gradient(rgb(0, 0, 0) 2px, transparent 0);
   background-size: 50px 50px;
@@ -17,7 +17,10 @@
   line-height: 45px;
   text-align: center;
   font-weight: bold;
-  transition: all 50ms 0s ease;
+  font-family: monospace;
+  border-color: gold;
+  border-width: 2px;
+  transition: all 300ms 0s ease;
 }
 .row1 {
   top: 13px;
@@ -46,81 +49,81 @@
 .val2 {
   background: beige;
   color: dimgray;
-  font-size: 15px;
+  font-size: 30px;
 }
 
 .val4 {
   background: blanchedalmond;
   color: dimgray;
-  font-size: 15px;
+  font-size: 30px;
 }
 .val8 {
   background: orange;
   color: whitesmoke;
-  font-size: 15px;
+  font-size: 30px;
 }
 .val16 {
-  background: #f6f79f;
-  color: blueviolet;
-  font-size: 15px;
+  background: salmon;
+  color: whitesmoke;
+  font-size: 27px;
 }
 .val32 {
-  background: #f6f79f;
-  color: blueviolet;
-  font-size: 15px;
+  background: coral;
+  color: whitesmoke;
+  font-size: 27px;
 }
 .val64 {
-  background: #f6f79f;
-  color: blueviolet;
-  font-size: 15px;
+  background: chocolate;
+  color: whitesmoke;
+  font-size: 27px;
 }
 .val128 {
-  background: #f6f79f;
-  color: blueviolet;
-  font-size: 12px;
+  background: yellow;
+  color: lightgray;
+  font-size: 23px;
 }
 .val256 {
-  background: #f6f79f;
-  color: blueviolet;
-  font-size: 12px;
+  background: yellow;
+  color: silver;
+  font-size: 23px;
 }
 .val512 {
-  background: #f6f79f;
-  color: blueviolet;
-  font-size: 12px;
+  background: yellow;
+  color: silver;
+  font-size: 23px;
 }
 .val1024 {
-  background: #f6f79f;
-  color: blueviolet;
-  font-size: 10px;
+  background: yellow;
+  color: silver;
+  font-size: 15px;
 }
 .val2048 {
-  background: #f6f79f;
-  color: blueviolet;
-  font-size: 10px;
+  background: yellow;
+  color: silver;
+  font-size: 15px;
 }
 .val4096 {
-  background: #f6f79f;
-  color: blueviolet;
-  font-size: 10px;
+  background: red;
+  color: whitesmoke;
+  font-size: 15px;
 }
 .val8192 {
-  background: #f6f79f;
-  color: blueviolet;
-  font-size: 10px;
+  background: red;
+  color: whitesmoke;
+  font-size: 15px;
 }
 .val16384 {
-  background: black;
+  background: red;
   color: whitesmoke;
-  font-size: 8px;
+  font-size: 10px;
 }
 .val32768 {
-  background: black;
+  background: red;
   color: whitesmoke;
-  font-size: 8px;
+  font-size: 10px;
 }
 .val65536 {
-  background: black;
+  background: red;
   color: whitesmoke;
-  font-size: 8px;
+  font-size: 10px;
 }

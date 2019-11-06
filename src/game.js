@@ -3,11 +3,14 @@ class Game {
     this.tiles = [];
     this.score = 0;
     this.gameover = false;
+    this.xmax = 4;
+    this.ymax = 4;
   }
   start() {
     this.gameover = false;
     this.score = 0;
-    this.tiles.push(new Tile(2, new Vector2(1, 3)));
+    this.spawn();
+    this.spawn();
     document.getElementById("score").innerText = this.score;
   }
   move(key) {
@@ -28,49 +31,45 @@ class Game {
   }
   _moveUp() {
     let isMoved = false;
-    for (let x = 1; x <= 4; x++) {
-      isMoved |= this._moveAtLiner(new Array(
-        new Vector2(x, 1),
-        new Vector2(x, 2),
-        new Vector2(x, 3),
-        new Vector2(x, 4),
-      ));
+    for (let x = 1; x <= this.xmax; x++) {
+      let ary = [];
+      for (let y = 1; y <= this.ymax; y++) {
+        ary.push(new Vector2(x, y));
+      }
+      isMoved |= this._moveAtLiner(ary);
     }
     return isMoved;
   }
   _moveDown() {
     let isMoved = false;
-    for (let x = 1; x <= 4; x++) {
-      isMoved |= this._moveAtLiner(new Array(
-        new Vector2(x, 4),
-        new Vector2(x, 3),
-        new Vector2(x, 2),
-        new Vector2(x, 1),
-      ));
+    for (let x = 1; x <= this.xmax; x++) {
+      let ary = [];
+      for (let y = this.ymax; y >= 1; y--) {
+        ary.push(new Vector2(x, y));
+      }
+      isMoved |= this._moveAtLiner(ary);
     }
     return isMoved;
   }
   _moveRight() {
     let isMoved = false;
-    for (let y = 1; y <= 4; y++) {
-      isMoved |= this._moveAtLiner(new Array(
-        new Vector2(4, y),
-        new Vector2(3, y),
-        new Vector2(2, y),
-        new Vector2(1, y),
-      ));
+    for (let y = 1; y <= this.ymax; y++) {
+      let ary = [];
+      for (let x = this.xmax; x >= 1; x--) {
+        ary.push(new Vector2(x, y));
+      }
+      isMoved |= this._moveAtLiner(ary);
     }
     return isMoved;
   }
   _moveLeft() {
     let isMoved = false;
-    for (let y = 1; y <= 4; y++) {
-      isMoved |= this._moveAtLiner(new Array(
-        new Vector2(1, y),
-        new Vector2(2, y),
-        new Vector2(3, y),
-        new Vector2(4, y),
-      ));
+    for (let y = 1; y <= this.ymax; y++) {
+      let ary = [];
+      for (let x = 1; x <= this.xmax; x++) {
+        ary.push(new Vector2(x, y));
+      }
+      isMoved |= this._moveAtLiner(ary);
     }
     return isMoved;
   }
@@ -88,7 +87,8 @@ class Game {
             t.move(ary[count].x, ary[count].y);
             top.remove();
             this.tiles = this.tiles.filter(a => a != top);
-            top = t;
+            top = null;
+            count++;
             isMoved = true;
           } else {
             count++;
@@ -106,11 +106,11 @@ class Game {
     return isMoved;
   }
   spawn() {
-    let rnd = Math.floor(Math.random() * (16 + 1)) + 1;
-    let val = (Math.floor(Math.random() * (1 + 1)) + 1) * 2;
+    let rnd = Math.floor(Math.random() * (this.xmax * this.ymax + 1)) + 1;
+    let val = Math.sqrt(Math.pow(Math.random(), 2) + Math.pow(Math.random(), 2)) <= 1 ? 2 : 4;
     while (rnd > 0) {
-      for (let x = 1; x <= 4; x++) {
-        for (let y = 1; y <= 4; y++) {
+      for (let x = 1; x <= this.xmax; x++) {
+        for (let y = 1; y <= this.ymax; y++) {
           let t = this.tiles.find(t => t.position.x == x && t.position.y == y);
           if (!t) {
             rnd--;
@@ -125,10 +125,10 @@ class Game {
   }
   isGameover() {
     // まだ空きがある場合OK
-    if (this.tiles.length < 16)
+    if (this.tiles.length < this.xmax * this.ymax)
       return false;
-    for (let x = 1; x <= 4; x++) {
-      for (let y = 1; y <= 4; y++) {
+    for (let x = 1; x <= this.xmax; x++) {
+      for (let y = 1; y <= this.ymax; y++) {
         let t = this.tiles.find(t => t.position.x == x && t.position.y == y);
         let n = this.tiles.find(t => t.position.x == x + 1 && t.position.y == y);
         if (n) {
