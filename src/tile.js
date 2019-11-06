@@ -6,7 +6,7 @@ class Tile {
     this.id = Tile.index_seed++;
     let elm = document.createElement("div");
     elm.setAttribute("id", this.id);
-    elm.setAttribute("class", "tile val" + this.value + " row" + this.position.y + " col" + this.position.x);
+    elm.setAttribute("class", `tile val${this.value} row${this.position.y} col${this.position.x}`);
     elm.innerText = this.value;
     this.elm = document.getElementById("ground").appendChild(elm);
   }
