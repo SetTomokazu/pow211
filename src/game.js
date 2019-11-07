@@ -15,13 +15,7 @@ class Game {
   }
   move(key) {
     if (this.gameover) return;
-    let isMoved = false;
-    switch (key) {
-      case 37: isMoved = this._moveLeft(); break;// left
-      case 38: isMoved = this._moveUp(); break;// up
-      case 39: isMoved = this._moveRight(); break;// right
-      case 40: isMoved = this._moveDown(); break;// down
-    }
+    let isMoved = this[`_move${key}`]();
     if (isMoved) this.spawn();
     this.gameover = this.isGameover();
     if (this.gameover) {
@@ -30,7 +24,7 @@ class Game {
     document.getElementById("score").innerText = this.score;
     return isMoved;
   }
-  _moveUp() {
+  _moveArrowUp() {
     let isMoved = false;
     for (let x = 1; x <= this.xmax; x++) {
       let ary = [];
@@ -41,7 +35,7 @@ class Game {
     }
     return isMoved;
   }
-  _moveDown() {
+  _moveArrowDown() {
     let isMoved = false;
     for (let x = 1; x <= this.xmax; x++) {
       let ary = [];
@@ -52,7 +46,7 @@ class Game {
     }
     return isMoved;
   }
-  _moveRight() {
+  _moveArrowRight() {
     let isMoved = false;
     for (let y = 1; y <= this.ymax; y++) {
       let ary = [];
@@ -63,7 +57,7 @@ class Game {
     }
     return isMoved;
   }
-  _moveLeft() {
+  _moveArrowLeft() {
     let isMoved = false;
     for (let y = 1; y <= this.ymax; y++) {
       let ary = [];

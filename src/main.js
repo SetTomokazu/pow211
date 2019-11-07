@@ -1,11 +1,10 @@
-var isPressing = false;
 var key = null;
 var canInput = true;
+const keys = ["ArrowUp", "ArrowLeft", "ArrowDown", "ArrowRight"];
 document.onkeydown = (event) => {
-  //if (isPressing) return;
-  if (event.which < 37 || 40 < event.which) return;
+  if (keys.findIndex(k => k == event.key) == -1) return;
   if (canInput) {
-    if (game.move(event.which)) {
+    if (game.move(event.key)) {
       canInput = false;
       window.setTimeout(() => { canInput = true; }, 250);
     }
