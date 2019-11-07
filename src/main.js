@@ -1,13 +1,15 @@
 var isPressing = false;
 var key = null;
+var canInput = true;
 document.onkeydown = (event) => {
-  if (isPressing) return;
+  //if (isPressing) return;
   if (event.which < 37 || 40 < event.which) return;
-  game.move(event.which);
-
-};
-document.onkeyup = (event) => {
-  if (key < 37 || 40 < key) return;
+  if (canInput) {
+    if (game.move(event.which)) {
+      canInput = false;
+      window.setTimeout(() => { canInput = true; }, 250);
+    }
+  }
 };
 
 

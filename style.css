@@ -13,25 +13,65 @@
   width: 45px;
   height: 45px;
   border-radius: 15px;
+  border-color: gold;
+  border-width: 2px;
+  transition: all 250ms 0s ease;
+  overflow: hidden;
+}
+span[class*="val"]  {
+  position: fixed;
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  border-radius: 15px;
   line-height: 45px;
   text-align: center;
   font-weight: bold;
   font-family: monospace;
-  border-color: gold;
-  border-width: 2px;
-  transition: all 300ms 0s ease;
-  animation-name: appear;
-  animation-duration: 300ms;
+  animation-duration: 250ms;
   animation-timing-function: ease;
   animation-delay: 0s;
-  animation-iteration-count: 1
+  animation-iteration-count: 1;
+  overflow: hidden;
+}
+.spawn {
+  animation-name: appear;
+  animation-duration: 250ms;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+}
+.docking {
+  animation-name: docking;
+  animation-duration: 250ms;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
 }
 @keyframes appear {
   0% {
-    transform: scale(.3);
+    transform: scale(0.3);
   }
   100% {
     transform: scale(1) rotate(360deg);
+  }
+}
+@keyframes docking {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  85% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 .row1 {
@@ -61,80 +101,96 @@
 .val2 {
   background: beige;
   color: dimgray;
+  z-index: 1;
   font-size: 30px;
 }
 .val4 {
   background: blanchedalmond;
   color: dimgray;
+  z-index: 2;
   font-size: 30px;
 }
 .val8 {
   background: orange;
   color: whitesmoke;
+  z-index: 3;
   font-size: 30px;
 }
 .val16 {
   background: salmon;
   color: whitesmoke;
+  z-index: 4;
   font-size: 27px;
 }
 .val32 {
   background: coral;
   color: whitesmoke;
+  z-index: 5;
   font-size: 27px;
 }
 .val64 {
   background: chocolate;
   color: whitesmoke;
+  z-index: 6;
   font-size: 27px;
 }
 .val128 {
   background: yellow;
   color: lightgray;
+  z-index: 7;
   font-size: 23px;
 }
 .val256 {
   background: yellow;
   color: silver;
+  z-index: 8;
   font-size: 23px;
 }
 .val512 {
   background: yellow;
   color: silver;
+  z-index: 9;
   font-size: 23px;
 }
 .val1024 {
   background: yellow;
   color: silver;
+  z-index: 10;
   font-size: 15px;
 }
 .val2048 {
   background: yellow;
   color: silver;
+  z-index: 11;
   font-size: 15px;
 }
 .val4096 {
   background: red;
   color: whitesmoke;
+  z-index: 12;
   font-size: 15px;
 }
 .val8192 {
   background: red;
   color: whitesmoke;
+  z-index: 13;
   font-size: 15px;
 }
 .val16384 {
   background: red;
   color: whitesmoke;
+  z-index: 14;
   font-size: 10px;
 }
 .val32768 {
   background: red;
   color: whitesmoke;
+  z-index: 15;
   font-size: 10px;
 }
 .val65536 {
   background: red;
   color: whitesmoke;
+  z-index: 16;
   font-size: 10px;
 }

@@ -28,6 +28,7 @@ class Game {
       console.log("Game Over");
     }
     document.getElementById("score").innerText = this.score;
+    return isMoved;
   }
   _moveUp() {
     let isMoved = false;

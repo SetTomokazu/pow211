@@ -6,18 +6,28 @@ class Tile {
     this.id = Tile.index_seed++;
     let elm = document.createElement("div");
     elm.setAttribute("id", this.id);
-    elm.setAttribute("class", `tile val${this.value} row${this.position.y} col${this.position.x}`);
-    elm.innerText = this.value;
+    elm.setAttribute("class", `tile row${this.position.y} col${this.position.x} spawn`);
+    let child = document.createElement("span");
+    child.setAttribute("class", `val${this.value}`);
+    child.innerText = this.value;
+    elm.appendChild(child);
     this.elm = document.getElementById("ground").appendChild(elm);
+    this.elm.addEventListener("transitionend", (e) => {
+    });
+    this.elm.addEventListener("animationend", (e) => {
+    });
+
   }
   setValue(val) {
-    this.elm.classList.replace("val" + this.value, "val" + val);
-    this.elm.innerText = val;
+    let child = document.createElement("span");
+    child.setAttribute("class", `val${val} docking`);
+    child.innerText = val;
+    this.elm.appendChild(child);
     this.value = val;
   }
   move(x, y) {
-    this.elm.classList.replace("row" + this.position.y, "row" + y);
-    this.elm.classList.replace("col" + this.position.x, "col" + x);
+    this.elm.classList.replace(`row${this.position.y}`, `row${y}`);
+    this.elm.classList.replace(`col${this.position.x}`, `col${x}`);
     this.position.x = x;
     this.position.y = y;
   }
