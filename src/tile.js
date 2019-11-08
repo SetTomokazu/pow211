@@ -4,6 +4,7 @@ class Tile {
     this.value = val;
     this.position = pos;
     this.id = Tile.index_seed++;
+    this.isRemoved = false;
     let elm = document.createElement("div");
     elm.setAttribute("id", this.id);
     elm.setAttribute("class", `tile row${this.position.y} col${this.position.x} spawn`);
@@ -14,7 +15,11 @@ class Tile {
     this.elm = document.getElementById("ground").appendChild(elm);
     this.elm.addEventListener("transitionend", (e) => {
     });
-    this.elm.addEventListener("animationend", (e) => {
+    this.elm.addEventListener("animationend", () => {
+      if (this.isRemoved) {
+        this.elm.parentNode.removeChild(this.elm);
+        return;
+      }
       if (this.elm.children.length > 1) {
         this.elm.removeChild(this.elm.firstChild);
       }
@@ -34,6 +39,7 @@ class Tile {
     this.position.y = y;
   }
   remove() {
-    this.elm.parentNode.removeChild(this.elm);
+    this.elm.classList.add("dead");
+    this.isRemoved=true;
   }
 }
