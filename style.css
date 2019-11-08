@@ -15,7 +15,7 @@
   border-radius: 15px;
   border-color: gold;
   border-width: 2px;
-  transition: all 250ms 0s ease;
+  transition: all 150ms 0s ease-in;
   overflow: hidden;
 }
 span[class*="val"]  {
@@ -28,24 +28,19 @@ span[class*="val"]  {
   text-align: center;
   font-weight: bold;
   font-family: monospace;
-  animation-duration: 250ms;
-  animation-timing-function: ease;
-  animation-delay: 0s;
-  animation-iteration-count: 1;
-  overflow: hidden;
 }
 .spawn {
   animation-name: appear;
-  animation-duration: 250ms;
+  animation-duration: 150ms;
   animation-timing-function: ease;
   animation-delay: 0s;
   animation-iteration-count: 1;
 }
 .docking {
   animation-name: docking;
-  animation-duration: 250ms;
+  animation-duration: 20ms;
   animation-timing-function: ease;
-  animation-delay: 0s;
+  animation-delay: 130ms;
   animation-iteration-count: 1;
 }
 @keyframes appear {
@@ -61,11 +56,7 @@ span[class*="val"]  {
     opacity: 0;
     transform: scale(1);
   }
-  70% {
-    opacity: 0;
-    transform: scale(1);
-  }
-  85% {
+  50% {
     opacity: 0.5;
     transform: scale(1.2);
   }

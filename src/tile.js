@@ -15,8 +15,10 @@ class Tile {
     this.elm.addEventListener("transitionend", (e) => {
     });
     this.elm.addEventListener("animationend", (e) => {
+      if (this.elm.children.length > 1) {
+        this.elm.removeChild(this.elm.firstChild);
+      }
     });
-
   }
   setValue(val) {
     let child = document.createElement("span");

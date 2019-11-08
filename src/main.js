@@ -6,7 +6,7 @@ document.onkeydown = (event) => {
   if (canInput) {
     if (game.move(event.key)) {
       canInput = false;
-      window.setTimeout(() => { canInput = true; }, 250);
+      window.setTimeout(() => { canInput = true; }, 150);
     }
   }
 };
