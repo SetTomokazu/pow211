@@ -12,6 +12,7 @@ class Game {
     this.spawn();
     this.spawn();
     document.getElementById("score").innerText = this.score;
+    document.getElementById("best_score").innerText = this.load();
   }
   move(key) {
     if (this.gameover) return;
@@ -20,8 +21,10 @@ class Game {
     this.gameover = this.isGameover();
     if (this.gameover) {
       console.log("Game Over");
+      this.save(this.score);
     }
     document.getElementById("score").innerText = this.score;
+
     return isMoved;
   }
   _moveArrowUp() {
@@ -134,5 +137,18 @@ class Game {
       }
     }
     return true;
+  }
+  save(score) {
+    let bs = this.load();
+    if (score > bs) {
+      localStorage.setItem('best_score', Number(score));
+    }
+  }
+  load() {
+    let best_score = localStorage.getItem('best_score');
+    if (best_score == undefined || best_score == null) {
+      best_score = 0;
+    }
+    return best_score;
   }
 }

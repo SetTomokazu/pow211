@@ -7,6 +7,12 @@
   background-size: 50px 50px;
   background-position: 2px 2px;
 }
+#score::before {
+  content: "SCORE: ";
+}
+#best_score::before {
+  content: "BEST SCORE: ";
+}
 .tile {
   position: absolute;
   display: inline-block;
@@ -18,7 +24,7 @@
   transition: all 150ms 0s linear;
   overflow: hidden;
 }
-span[class*="val"]  {
+span[class*="val"] {
   position: fixed;
   display: inline-block;
   width: 45px;
