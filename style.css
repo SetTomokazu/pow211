@@ -21,7 +21,7 @@
   border-radius: 15px;
   border-color: gold;
   border-width: 2px;
-  transition: all 150ms 0s linear;
+  transition: all 100ms 0s linear;
   overflow: hidden;
 }
 span[class*="val"] {
@@ -37,21 +37,21 @@ span[class*="val"] {
 }
 .spawn {
   animation-name: appear;
-  animation-duration: 150ms;
+  animation-duration: 100ms;
   animation-timing-function: ease;
   animation-delay: 0s;
   animation-iteration-count: 1;
 }
 .dead {
   animation-name: disappear;
-  animation-duration: 150ms;
+  animation-duration: 100ms;
   animation-timing-function: ease;
   animation-delay: 0s;
   animation-iteration-count: 1;
 }
 .docking {
   animation-name: docking;
-  animation-duration: 150ms;
+  animation-duration: 100ms;
   animation-timing-function: ease;
   animation-delay: 0ms;
   animation-iteration-count: 1;
