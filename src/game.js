@@ -13,18 +13,21 @@ class Game {
     this.spawn();
     document.getElementById("score").innerText = this.score;
     document.getElementById("best_score").innerText = this.load();
+    document.getElementById("gameover").classList.remove("gameover_show");
   }
   move(key) {
     if (this.gameover) return;
     let isMoved = this[`_move${key}`]();
-    if (isMoved) this.spawn();
-    this.gameover = this.isGameover();
-    if (this.gameover) {
-      console.log("Game Over");
+    if (isMoved) {
+      this.spawn();
+      this.gameover = this.isGameover();
       this.save(this.score);
+      if (this.gameover) {
+        document.getElementById("gameover").classList.add("gameover_show");
+        console.log("Game Over");
+      }
+      document.getElementById("score").innerText = this.score;
     }
-    document.getElementById("score").innerText = this.score;
-
     return isMoved;
   }
   _moveArrowUp() {

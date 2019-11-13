@@ -1,11 +1,24 @@
+:root {
+  --room-inner: 50px;
+  --room-wall: 5px;
+  --room-outer: 55px;
+  --rank1: 30px;
+  --rank2: 27px;
+  --rank3: 23px;
+  --rank4: 15px;
+  --rank5: 10px;
+}
+#ground{
+  position: relative;
+  width: calc(var(--room-outer) * 4 + var(--room-wall));
+  height: calc(var(--room-outer) * 4 + var(--room-wall));
+}
 .my-parts {
-  width: 206px;
-  height: 206px;
   background: burlywood;
-  background-image: linear-gradient(90deg, rgb(0, 0, 0) 2px, transparent 0),
-    linear-gradient(rgb(0, 0, 0) 2px, transparent 0);
-  background-size: 50px 50px;
-  background-position: 2px 2px;
+  background-image: linear-gradient(#000 var(--room-wall), transparent 0),
+    linear-gradient(90deg, #000 var(--room-wall), transparent 0);
+  background-size: var(--room-outer) var(--room-outer),
+    var(--room-outer) var(--room-outer);
 }
 #score::before {
   content: "SCORE: ";
@@ -13,24 +26,35 @@
 #best_score::before {
   content: "BEST SCORE: ";
 }
+.gameover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  opacity: 0;
+  background: orange;
+  border-radius: 5%;
+}
+.gameover_show {
+  transition: all 2000ms 150ms ease-in-out;
+  opacity: 0.5;
+}
 .tile {
   position: absolute;
   display: inline-block;
-  width: 45px;
-  height: 45px;
-  border-radius: 15px;
-  border-color: gold;
-  border-width: 2px;
-  transition: all 100ms 0s linear;
+  width: var(--room-inner);
+  height: var(--room-inner);
+  border-radius: var(--room-wall);
+  transition: all 100ms 0s ease-in-out;
   overflow: hidden;
 }
 span[class*="val"] {
   position: fixed;
   display: inline-block;
-  width: 45px;
-  height: 45px;
+  width: var(--room-inner);
+  height: var(--room-inner);
   border-radius: 15px;
-  line-height: 45px;
+  line-height: var(--room-inner);
   text-align: center;
   font-weight: bold;
   font-family: monospace;
@@ -90,122 +114,122 @@ span[class*="val"] {
   }
 }
 .row1 {
-  top: 13px;
+  top: calc(var(--room-outer) * 0 + var(--room-wall));
 }
 .row2 {
-  top: 63px;
+  top: calc(var(--room-outer) * 1 + var(--room-wall));
 }
 .row3 {
-  top: 113px;
+  top: calc(var(--room-outer) * 2 + var(--room-wall));
 }
 .row4 {
-  top: 163px;
+  top: calc(var(--room-outer) * 3 + var(--room-wall));
 }
 .col1 {
-  left: 13px;
+  left: calc(var(--room-outer) * 0 + var(--room-wall));
 }
 .col2 {
-  left: 63px;
+  left: calc(var(--room-outer) * 1 + var(--room-wall));
 }
 .col3 {
-  left: 113px;
+  left: calc(var(--room-outer) * 2 + var(--room-wall));
 }
 .col4 {
-  left: 163px;
+  left: calc(var(--room-outer) * 3 + var(--room-wall));
 }
 .val2 {
   background: beige;
   color: dimgray;
   z-index: 1;
-  font-size: 30px;
+  font-size: var(--rank1);
 }
 .val4 {
   background: blanchedalmond;
   color: dimgray;
   z-index: 2;
-  font-size: 30px;
+  font-size: var(--rank1);
 }
 .val8 {
   background: orange;
   color: whitesmoke;
   z-index: 3;
-  font-size: 30px;
+  font-size: var(--rank1);
 }
 .val16 {
   background: salmon;
   color: whitesmoke;
   z-index: 4;
-  font-size: 27px;
+  font-size: var(--rank2);
 }
 .val32 {
   background: coral;
   color: whitesmoke;
   z-index: 5;
-  font-size: 27px;
+  font-size: var(--rank2);
 }
 .val64 {
   background: chocolate;
   color: whitesmoke;
   z-index: 6;
-  font-size: 27px;
+  font-size: var(--rank2);
 }
 .val128 {
   background: yellow;
   color: lightgray;
   z-index: 7;
-  font-size: 23px;
+  font-size: var(--rank3);
 }
 .val256 {
   background: yellow;
   color: silver;
   z-index: 8;
-  font-size: 23px;
+  font-size: var(--rank3);
 }
 .val512 {
   background: yellow;
   color: silver;
   z-index: 9;
-  font-size: 23px;
+  font-size: var(--rank3);
 }
 .val1024 {
   background: yellow;
   color: silver;
   z-index: 10;
-  font-size: 15px;
+  font-size: var(--rank4);
 }
 .val2048 {
   background: yellow;
   color: silver;
   z-index: 11;
-  font-size: 15px;
+  font-size: var(--rank4);
 }
 .val4096 {
   background: red;
   color: whitesmoke;
   z-index: 12;
-  font-size: 15px;
+  font-size: var(--rank4);
 }
 .val8192 {
   background: red;
   color: whitesmoke;
   z-index: 13;
-  font-size: 15px;
+  font-size: var(--rank4);
 }
 .val16384 {
   background: red;
   color: whitesmoke;
   z-index: 14;
-  font-size: 10px;
+  font-size: var(--rank5);
 }
 .val32768 {
   background: red;
   color: whitesmoke;
   z-index: 15;
-  font-size: 10px;
+  font-size: var(--rank5);
 }
 .val65536 {
   background: red;
   color: whitesmoke;
   z-index: 16;
-  font-size: 10px;
+  font-size: var(--rank5);
 }
