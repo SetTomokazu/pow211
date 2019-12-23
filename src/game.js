@@ -108,7 +108,7 @@ class Game {
   }
   spawn() {
     let rnd = Math.floor(Math.random() * (this.xmax * this.ymax - this.tiles.length)) + 1;
-    let val = Math.sqrt(Math.pow(Math.random(), 2) + Math.pow(Math.random(), 2)) <= 1 ? 2 : 4;
+    let val = 0.8 * Math.sqrt(Math.pow(Math.random(), 2) + Math.pow(Math.random(), 2)) <= 1 ? 2 : 4;
     for (let x = 1; x <= this.xmax; x++) {
       for (let y = 1; y <= this.ymax; y++) {
         let t = this.tiles.find(t => t.position.x == x && t.position.y == y);
